@@ -11,6 +11,7 @@ use App\Models\Link;
 use App\Models\Menu;
 use App\Models\Faculty;
 use App\Models\SideInfoModel;
+use App\Models\FacultyInfoModel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -53,5 +54,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('faculties', $faculties);
         $sideinfo = SideInfoModel::first() ?? new Menu;
         View::share('sideinfo', $sideinfo);
+        $facultyInfo = FacultyInfoModel::first() ?? new Menu;
+        View::share('facultyInfo', $facultyInfo);
     }
 }

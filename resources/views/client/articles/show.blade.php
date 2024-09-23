@@ -166,24 +166,15 @@
                     </div>
                     <div class="col-span-7 p-4 lg:col-span-8 lg:p-2">
                         <h1 class="block mt-1 mb-2 text-2xl font-medium leading-tight text-gray-800 dark:text-gray-100">
-                            @if (app()->getLocale() == 'kh' && $item->name_kh)
-                                {{ $item->name_kh }}
-                            @else
-                                {{ $item->name }}
-                            @endif
-
+                            {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
                         </h1>
-                        @if ($item->description)
+                        @if ($item->description && $item->description_kh)
                             <div class="mt-8">
                                 <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
                                     {{ __('messages.description') }}
                                 </h2>
                                 <div class="no-tailwind dark:text-white">
-                                    @if (app()->getLocale() == 'kh' && $item->name_kh)
-                                        {!! $item->description_kh !!}
-                                    @else
-                                        {!! $item->description !!}
-                                    @endif
+                                    {!! app()->getLocale() == 'kh' ? $item->description_kh : $item->description !!}
                                 </div>
                             </div>
                         @endif

@@ -58,7 +58,8 @@ class FacultyEdit extends Component
         $validated['create_by_user_id'] = request()->user()->id;
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 

@@ -11,10 +11,10 @@ class PublicationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:view epublication', ['only' => ['index', 'show']]);
-        $this->middleware('permission:create epublication', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update epublication', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete epublication', ['only' => ['destroy']]);
+        $this->middleware('permission:view faculty', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create faculty', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update faculty', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete faculty', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

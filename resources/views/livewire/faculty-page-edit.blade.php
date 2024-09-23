@@ -87,7 +87,7 @@
                     <x-input-error :messages="$errors->get('order_index')" class="mt-2" />
                 </div>
                 <div class="relative w-full group">
-                    <x-input-label for="type" :value="__('Type')" />
+                    <x-input-label for="type" :value="__('Children Type')" />
                     <div class="flex flex-1 gap-1 mt-1">
                         <div class="flex justify-start flex-1">
                             <x-select-option wire:model.live='type' id="type"

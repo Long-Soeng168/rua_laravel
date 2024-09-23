@@ -78,6 +78,7 @@
                             Title
                         </div>
                     </th>
+                    <th scope="col" class="px-4 py-3">Title KH</th>
                     <th scope="col" class="py-3 text-center">Action</th>
                 </tr>
             </thead>
@@ -96,11 +97,12 @@
                             </a>
                         </th>
                         <x-table-data value="{{ $item->name }}" />
+                        <x-table-data value="{{ $item->name_kh }}" />
 
                         <td class="px-6 py-4">
                             <div class="flex items-start justify-center gap-3">
 
-                                @can('view video')
+                                {{-- @can('view video')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('videos/' . $item->id) }}" @mouseenter="tooltip = true"
@@ -126,7 +128,7 @@
                                             View
                                         </div>
                                     </div>
-                                @endcan
+                                @endcan --}}
 
                                 @can('delete video')
                                     <div class="pb-1" x-data="{ tooltip: false }">

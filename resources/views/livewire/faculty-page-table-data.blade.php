@@ -92,7 +92,7 @@
         </div>
         <div
             class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-            @can('create epublication')
+            @can('create faculty')
                 <x-primary-button href="{{ route('admin.faculties_pages.create') }}">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
@@ -152,35 +152,7 @@
                         <td class="px-6 py-4">
                             <div class="flex items-start justify-center gap-3">
 
-                                @can('view epublication')
-                                    <div class="pb-1" x-data="{ tooltip: false }">
-                                        <!-- Modal toggle -->
-                                        <a href="{{ url('publications/' . $item->id) }}" @mouseenter="tooltip = true"
-                                            @mouseleave="tooltip = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="lucide lucide-eye">
-                                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </a>
-
-                                        <!-- View tooltip -->
-                                        <div x-show="tooltip" x-transition:enter="transition ease-out duration-200"
-                                            x-transition:enter-start="opacity-0 transform scale-90"
-                                            x-transition:enter-end="opacity-100 transform scale-100"
-                                            x-transition:leave="transition ease-in duration-75"
-                                            x-transition:leave-start="opacity-100 transform scale-100"
-                                            x-transition:leave-end="opacity-0 transform scale-90"
-                                            class="absolute z-10 inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm dark:bg-gray-700"
-                                            style="display: none;">
-                                            View
-                                        </div>
-                                    </div>
-                                @endcan
-
-                                @can('delete epublication')
+                                @can('delete faculty')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a wire:confirm='Are you sure? you want to delete : {{ $item->name }}'
@@ -212,7 +184,7 @@
                                     </div>
                                 @endcan
 
-                                @can('update epublication')
+                                @can('update faculty')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('admin/faculties_pages/' . $item->id . '/edit') }}"

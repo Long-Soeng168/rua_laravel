@@ -34,6 +34,7 @@ class ImageEdit extends Component
     public $author_id = null;
 
     public $name = null;
+    public $name_kh = null;
     public $duration = null;
     public $edition = null;
     public $link = null;
@@ -56,6 +57,7 @@ class ImageEdit extends Component
         $this->author_id = $this->item->author_id;
 
         $this->name = $this->item->name;
+        $this->name_kh = $this->item->name_kh;
         $this->link = $this->item->link;
         $this->isbn = $this->item->isbn;
         $this->year = $this->item->year;
@@ -306,6 +308,7 @@ class ImageEdit extends Component
         $this->dispatch('livewire:updated');
         $validated = $this->validate([
             'name' => 'required|string|max:255',
+            'name_kh' => 'required|string|max:255',
             'year' => 'nullable|integer|min:1000|max:' . date('Y'),
             'link' => 'nullable|string|max:255',
             'image_category_id' => 'nullable',
@@ -326,7 +329,8 @@ class ImageEdit extends Component
 
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 

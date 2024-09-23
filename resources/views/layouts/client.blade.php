@@ -95,7 +95,7 @@
 
     {{-- Start Header --}}
     <Header class="">
-        <section class="max-w-screen-xl px-2 mx-auto">
+        <section class="relative max-w-screen-xl px-2 mx-auto">
             <div class="grid items-center grid-cols-12 ">
                 <div class="relative flex items-center col-span-1 p-2 justify-startp- hover:cursor-pointer">
                     <a href="{{ url('/') }}">
@@ -227,7 +227,22 @@
 
                     </div>
                 </div>
+
             </div>
+            {{-- Start Language --}}
+            <div class="absolute bottom-0 right-0 p-4">
+                <a href="{{ route('switch-language', ['locale' => 'kh']) }}" type="button"
+                    class="{{ app()->getLocale() == 'kh' ? 'bg-gray-100' : '' }} inline-flex items-center justify-center p-2 text-sm font-medium text-gray-900 rounded-lg cursor-pointer dark:text-white hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-white">
+                    <img class="w-5 h-5 rounded-full" src="{{ asset('assets/icons/khmer.png') }}"
+                        alt="" />
+                </a>
+                <a href="{{ route('switch-language', ['locale' => 'en']) }}" type="button"
+                    class="{{ app()->getLocale() == 'en' ? 'bg-gray-100' : '' }} inline-flex items-center justify-center p-2 text-sm font-medium text-gray-900 rounded-lg cursor-pointer  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-100 dark:hover:text-white">
+                    <img class="w-5 h-5 rounded-full" src="{{ asset('assets/icons/english.png') }}"
+                        alt="" />
+                </a>
+            </div>
+            {{-- End Language --}}
         </section>
         {{-- Start Bottom Navbar --}}
         <section class="px-2 border-gray-200 bg-primary ">
@@ -354,6 +369,7 @@
                     @endforelse
                 </ul>
             </nav>
+
         </section>
         {{-- End Bottom Navbar --}}
 

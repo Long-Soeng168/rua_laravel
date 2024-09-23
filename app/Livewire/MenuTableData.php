@@ -56,6 +56,7 @@ class MenuTableData extends Component
                                     ->orWhere('name_kh', 'LIKE', "%$this->search%");
                             })
 
+                            ->orderBy('position')
                             ->orderBy($this->sortBy, $this->sortDir)
                             ->paginate($this->perPage);
 

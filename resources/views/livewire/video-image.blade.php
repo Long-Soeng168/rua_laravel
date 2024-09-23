@@ -134,7 +134,7 @@
                 <div class="flex flex-wrap gap-4 mt-2">
                     @foreach ($images as $index => $image)
                         <div class="relative group">
-                            <img src="{{ $image->temporaryUrl() }}" alt="Preview Image"
+                            <img src="{{ $image->temporaryUrl() }}" alt="Preview gallery"
                                 class="object-contain max-w-full border rounded-lg shadow-md max-h-40" />
                             <button wire:click.prevent="removeImage({{ $index }})"
                                 class="absolute p-1 text-white transition-opacity duration-300 ease-in-out bg-red-500 rounded-full opacity-0 top-2 right-2 group-hover:opacity-100">
@@ -175,7 +175,7 @@
                 @forelse ($multiImages as $index => $image)
                     <div class="relative group" wire:key='{{ $image->id }}'>
                         <img src="{{ asset('assets/images/videos/thumb/' . $image->image) }}"
-                            alt="Preview Image"
+                            alt="Preview gallery"
                             class="object-contain max-w-full border rounded-lg shadow-md max-h-40" />
                             <button wire:click="delete({{ $image->id }})"
                                 wire:loading.attr="disabled"

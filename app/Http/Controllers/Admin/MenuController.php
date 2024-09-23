@@ -10,10 +10,10 @@ class MenuController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:view setting', ['only' => ['index', 'show']]);
-        $this->middleware('permission:create setting', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update setting', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete setting', ['only' => ['destroy']]);
+        $this->middleware('permission:view menu', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create menu', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update menu', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete menu', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

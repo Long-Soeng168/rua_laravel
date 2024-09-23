@@ -74,6 +74,12 @@
                     required autofocus placeholder="Title" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
+            <div>
+                <x-input-label for="name_kh" :value="__('Name KH')" /><span class="text-red-500">*</span>
+                <x-text-input id="name_kh" class="block w-full mt-1" type="text" name="name_kh" wire:model='name_kh'
+                    required autofocus placeholder="Name KH" />
+                <x-input-error :messages="$errors->get('name_kh')" class="mt-2" />
+            </div>
             <!-- End Name -->
 
         </div>
@@ -191,7 +197,11 @@
 
         <div class="mb-5" wire:ignore>
             <x-input-label for="description" :value="__('Description')" />
-            <textarea id="description" name="description" wire:model='description'></textarea>
+            <textarea id="description" name="description">{{ $description }}</textarea>
+        </div>
+        <div class="mb-5" wire:ignore>
+            <x-input-label for="description_kh" :value="__('Description KH')" />
+            <textarea id="description_kh" name="description_kh">{{ $description_kh }}</textarea>
         </div>
 
         <div>
@@ -227,11 +237,18 @@
         };
 
         $(document).ready(function() {
-            const editor = CKEDITOR.replace('description', options);
-            editor.on('change', function(event) {
+            const editor_description = CKEDITOR.replace('description', options);
+            editor_description.on('change', function(event) {
                 console.log(event.editor.getData())
                 @this.set('description', event.editor.getData(), false);
             })
+
+            const editor_description_kh = CKEDITOR.replace('description_kh', options);
+            editor_description_kh.on('change', function(event) {
+                console.log(event.editor.getData())
+                @this.set('description_kh', event.editor.getData(), false);
+            })
+
         })
 
         function initSelect2() {

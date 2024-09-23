@@ -74,6 +74,12 @@
                     required autofocus placeholder="Title" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
+            <div>
+                <x-input-label for="name_kh" :value="__('Name KH')" /><span class="text-red-500">*</span>
+                <x-text-input id="name_kh" class="block w-full mt-1" type="text" name="name_kh" wire:model='name_kh'
+                    required autofocus placeholder="Name KH" />
+                <x-input-error :messages="$errors->get('name_kh')" class="mt-2" />
+            </div>
             <!-- End Name -->
 
         <div class="mb-5">

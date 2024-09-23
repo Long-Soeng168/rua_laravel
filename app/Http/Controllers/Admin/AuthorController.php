@@ -9,10 +9,10 @@ class AuthorController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:view people', ['only' => ['index', 'show']]);
-        $this->middleware('permission:create people', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update people', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete people', ['only' => ['destroy']]);
+        $this->middleware('permission:view setting', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create setting', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update setting', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete setting', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

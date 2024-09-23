@@ -136,6 +136,11 @@
             <textarea id="description" name="description"></textarea>
         </div>
 
+        <div class="mb-5" wire:ignore>
+            <x-input-label for="description_kh" :value="__('Description KH')" />
+            <textarea id="description_kh" name="description_kh"></textarea>
+        </div>
+
         <div>
             <x-outline-button wire:ignore href="{{ URL::previous() }}">
                 Go back
@@ -169,11 +174,18 @@
         };
 
         $(document).ready(function() {
-            const editor = CKEDITOR.replace('description', options);
-            editor.on('change', function(event) {
+            const editor_description = CKEDITOR.replace('description', options);
+            editor_description.on('change', function(event) {
                 console.log(event.editor.getData())
                 @this.set('description', event.editor.getData(), false);
             })
+
+            const editor_description_kh = CKEDITOR.replace('description_kh', options);
+            editor_description_kh.on('change', function(event) {
+                console.log(event.editor.getData())
+                @this.set('description_kh', event.editor.getData(), false);
+            })
+
         })
 
         function initSelect2() {

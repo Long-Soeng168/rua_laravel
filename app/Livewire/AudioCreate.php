@@ -295,6 +295,7 @@ class AudioCreate extends Component
             'language_id' => 'nullable|exists:languages,id',
             'author_id' => 'nullable|exists:authors,id',
             'description' => 'nullable',
+'description_kh' => 'nullable',
         ]);
 
         $validated['create_by_user_id'] = request()->user()->id;
@@ -307,7 +308,8 @@ class AudioCreate extends Component
 
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 

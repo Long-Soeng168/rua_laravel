@@ -17,8 +17,7 @@
                                 src="{{ asset('assets/images/news/' . $page->image) }}">
                         </a>
                         <div class="no-tailwind">
-                            {{-- {!! app()->getLocale() == 'kh' ? $page->description_kh : $page->description !!} --}}
-                            {!! $page->description !!}
+                            {!! app()->getLocale() == 'kh' ? $page->description_kh : $page->description !!}
                         </div>
                         <!-- End Content -->
                 </div>

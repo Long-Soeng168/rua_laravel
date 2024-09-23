@@ -96,7 +96,7 @@
                 <span>Total Read : {{ $totalReadCount }}</span>
                 <span>Total Download : {{ $totalDownloadCount }}</span>
             </div>
-            @can('create epublication')
+            @can('create faculty')
                 <x-primary-button href="{{ route('admin.publications.create') }}">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
@@ -160,7 +160,7 @@
                     <th scope="col" class="px-4 py-3">Author</th>
                     <th scope="col" class="px-4 py-3">Category</th>
                     <th scope="col" class="px-4 py-3">PDF</th>
-                    @can('update epublication')
+                    @can('update faculty')
                         <th scope="col" class="py-3 text-center">Read</th>
                         <th scope="col" class="py-3 text-center">Download</th>
                     @endcan
@@ -203,7 +203,7 @@
                                 </span>
                             @endif
                         </x-table-data>
-                        @can('update epublication')
+                        @can('update faculty')
                             <x-table-data wire:click="updateRead({{ $item->id }})" class="cursor-pointer">
                                 @if ($item->can_read)
                                     <span
@@ -234,7 +234,7 @@
 
                         <td class="px-6 py-4">
                             <div class="flex items-start justify-center gap-3">
-                                @can('update epublication')
+                                @can('update faculty')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('admin/publications_images/' . $item->id) }}"
@@ -262,7 +262,7 @@
                                     </div>
                                 @endcan
 
-                                @can('view epublication')
+                                @can('view faculty')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('publications/' . $item->id) }}" @mouseenter="tooltip = true"
@@ -290,7 +290,7 @@
                                     </div>
                                 @endcan
 
-                                @can('delete epublication')
+                                @can('delete faculty')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a wire:confirm='Are you sure? you want to delete : {{ $item->name }}'
@@ -322,7 +322,7 @@
                                     </div>
                                 @endcan
 
-                                @can('update epublication')
+                                @can('update faculty')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('admin/publications/' . $item->id . '/edit') }}"

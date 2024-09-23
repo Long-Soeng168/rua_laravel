@@ -11,10 +11,10 @@ class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:view article', ['only' => ['index', 'show']]);
-        $this->middleware('permission:create article', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update article', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete article', ['only' => ['destroy']]);
+        $this->middleware('permission:view procurement', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create procurement', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update procurement', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete procurement', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

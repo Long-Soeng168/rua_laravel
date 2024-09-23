@@ -52,7 +52,7 @@
 					if ( !dialog.originalElement || !dialog.preview )
 						return 1;
 
-					// Read attributes and update imagePreview;
+					// Read attributes and update galleryPreview;
 					dialog.commitContent( PREVIEW, dialog.preview );
 					return 0;
 				};

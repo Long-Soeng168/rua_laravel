@@ -444,7 +444,7 @@
                                 @endif
                                 @switch($database->slug)
                                     @case('publications')
-                                        @can('view epublication')
+                                        @can('view faculty')
                                             <a href="{{ url('admin/publications') }}"
                                                 class="{{ request()->is('admin/publications*') ? 'bg-slate-200 dark:bg-slate-500' : '' }} flex flex-col items-center justify-center p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
                                                 <img src="{{ asset('assets/images/databases/' . $database->image) }}"
@@ -468,7 +468,7 @@
                                     @break
 
                                     @case('images')
-                                        @can('view image')
+                                        @can('view gallery')
                                             <a href="{{ url('admin/images') }}"
                                                 class="{{ request()->is('admin/images*') ? 'bg-slate-200 dark:bg-slate-500' : '' }} flex flex-col items-center justify-center p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
                                                 <img src="{{ asset('assets/images/databases/' . $database->image) }}"
@@ -492,7 +492,7 @@
                                     @break
 
                                     @case('bulletins')
-                                        @can('view bulletin')
+                                        @can('view news')
                                             <a href="{{ url('admin/bulletins') }}"
                                                 class="{{ request()->is('admin/bulletins*') ? 'bg-slate-200 dark:bg-slate-500' : '' }} flex flex-col items-center justify-center p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
                                                 <img src="{{ asset('assets/images/databases/' . $database->image) }}"
@@ -516,7 +516,7 @@
                                     @break
 
                                     @case('journals')
-                                        @can('view journal')
+                                        @can('view scholarship')
                                             <a href="{{ url('admin/journals') }}"
                                                 class="{{ request()->is('admin/journals*') ? 'bg-slate-200 dark:bg-slate-500' : '' }} flex flex-col items-center justify-center p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
                                                 <img src="{{ asset('assets/images/databases/' . $database->image) }}"
@@ -528,7 +528,7 @@
                                     @break
 
                                     @case('articles')
-                                        @can('view article')
+                                        @can('view procurement')
                                             <a href="{{ url('admin/articles') }}"
                                                 class="{{ request()->is('admin/articles*') ? 'bg-slate-200 dark:bg-slate-500' : '' }} flex flex-col items-center justify-center p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group">
                                                 <img src="{{ asset('assets/images/databases/' . $database->image) }}"
@@ -850,6 +850,7 @@
                     </ul>
 
                     <ul class="pt-3 mt-5 border-t border-gray-200 dark:border-gray-700">
+                        @can('view faculty')
                         <li x-data="{
                             open: {{ request()->is('admin/faculties*') ? 'true' : 'false' }},
                             init() {
@@ -888,14 +889,17 @@
                                 </li>
 
                                 <li>
-                                    <a href="#"
-                                        class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/publications') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
+                                    <a href="{{ url('admin/faculties_info') }}"
+                                        class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/faculties_info') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
                                         Main Info
                                     </a>
                                 </li>
 
                             </ul>
                         </li>
+                        @endcan
+
+                        @can('view menu')
                         <li x-data="{
                             open: {{ request()->is('admin/menus*') ? 'true' : 'false' }},
                             init() {
@@ -932,16 +936,11 @@
                                         Pages
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/publications') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
-                                        Side Info
-                                    </a>
-                                </li>
-
                             </ul>
                         </li>
+                        @endcan
+
+                        @can('view news')
                         <li x-data="{
                             init() {
                                 if ({{ request()->is('admin/bulletins*') ? 'true' : 'false' }}) {
@@ -956,6 +955,9 @@
                                 <span class="ml-3">News</span>
                             </x-sidebar-item>
                         </li>
+                        @endcan
+
+                        @can('view procurement')
                         <li x-data="{
                             init() {
                                 if ({{ request()->is('admin/articles*') ? 'true' : 'false' }}) {
@@ -970,6 +972,9 @@
                                 <span class="ml-3">Procurements</span>
                             </x-sidebar-item>
                         </li>
+                        @endcan
+
+                        @can('view video')
                         <li x-data="{
                             init() {
                                 if ({{ request()->is('admin/videos*') ? 'true' : 'false' }}) {
@@ -984,6 +989,9 @@
                                 <span class="ml-3">Videos</span>
                             </x-sidebar-item>
                         </li>
+                        @endcan
+
+                        @can('view gallery')
                         <li x-data="{
                             init() {
                                 if ({{ request()->is('admin/images*') ? 'true' : 'false' }}) {
@@ -998,20 +1006,10 @@
                                 <span class="ml-3">Galleries/Photos</span>
                             </x-sidebar-item>
                         </li>
-                        <li x-data="{
-                            init() {
-                                if ({{ request()->is('admin/people/students*') ? 'true' : 'false' }}) {
-                                    this.$nextTick(() => this.$refs.students.scrollIntoView({ behavior: 'smooth' }));
-                                }
-                            }
-                        }" x-ref="students">
-                            <x-sidebar-item href="{{ route('admin.students.index') }}"
-                                class="{{ request()->is('admin/people/students*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
-                                <img src="{{ asset('assets/icons/menu.png') }}" alt="icon"
-                                    class="object-contain w-8 h-8 p-0.5 bg-white dark:bg-gray-200 rounded">
-                                <span class="ml-3">Homepage Links</span>
-                            </x-sidebar-item>
-                        </li>
+                        @endcan
+
+
+                        @can('view scholarship')
                         <li x-data="{
                             init() {
                                 if ({{ request()->is('admin/journals*') ? 'true' : 'false' }}) {
@@ -1021,25 +1019,13 @@
                         }" x-ref="journals">
                             <x-sidebar-item href="{{ route('admin.journals.index') }}"
                                 class="{{ request()->is('admin/journals*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
-                                <img src="{{ asset('assets/icons/menu.png') }}" alt="icon"
+                                <img src="{{ asset('assets/icons/scholarship.png') }}" alt="icon"
                                     class="object-contain w-8 h-8 p-0.5 bg-white dark:bg-gray-200 rounded">
                                 <span class="ml-3">Scholarships</span>
                             </x-sidebar-item>
                         </li>
-                        <li x-data="{
-                            init() {
-                                if ({{ request()->is('admin/sideinfo*') ? 'true' : 'false' }}) {
-                                    this.$nextTick(() => this.$refs.sideinfo.scrollIntoView({ behavior: 'smooth' }));
-                                }
-                            }
-                        }" x-ref="sideinfo">
-                            <x-sidebar-item href="{{ url('admin/sideinfo') }}"
-                                class="{{ request()->is('admin/sideinfo*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
-                                <img src="{{ asset('assets/icons/menu.png') }}" alt="icon"
-                                    class="object-contain w-8 h-8 p-0.5 bg-white dark:bg-gray-200 rounded">
-                                <span class="ml-3">Side Info</span>
-                            </x-sidebar-item>
-                        </li>
+                        @endcan
+
                     </ul>
 
                     @can('view setting')
@@ -1093,7 +1079,18 @@
                                                 </a>
                                             </li>
                                         @endcan --}}
-
+                                    <li>
+                                        <a href="{{ url('admin/sideinfo') }}"
+                                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/sideinfo*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
+                                            Side Info
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('admin/people/students') }}"
+                                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/people/students*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">
+                                            Homepage Links
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{ url('admin/settings/website_infos/1/edit') }}"
                                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/settings/website_infos*') ? 'bg-slate-200 dark:bg-slate-500' : '' }}">

@@ -35,12 +35,14 @@ class VideoEdit extends Component
     public $author_id = null;
 
     public $name = null;
+    public $name_kh = null;
     public $duration = null;
     public $edition = null;
     public $link = null;
     public $isbn = null;
     public $year = null;
     public $description = null;
+    public $description_kh = null;
 
     public $keywords = [];
 
@@ -57,12 +59,14 @@ class VideoEdit extends Component
         $this->author_id = $this->item->author_id;
 
         $this->name = $this->item->name;
+        $this->name_kh = $this->item->name_kh;
         $this->duration = $this->item->duration;
         $this->edition = $this->item->edition;
         $this->link = $this->item->link;
         $this->isbn = $this->item->isbn;
         $this->year = $this->item->year;
         $this->description = $this->item->description;
+        $this->description_kh = $this->item->description_kh;
 
         $this->keywords = explode(',', $this->item->keywords);
     }
@@ -309,6 +313,7 @@ class VideoEdit extends Component
         $this->dispatch('livewire:updated');
         $validated = $this->validate([
             'name' => 'required|string|max:255',
+            'name_kh' => 'required|string|max:255',
             'duration' => 'nullable',
             'year' => 'nullable|integer|min:1000|max:' . date('Y'),
             'link' => 'nullable|string|max:255',
@@ -320,6 +325,7 @@ class VideoEdit extends Component
             'language_id' => 'nullable',
             'author_id' => 'nullable',
             'description' => 'nullable',
+            'description_kh' => 'nullable',
         ]);
 
         if (count($this->keywords) > 0) {
@@ -330,7 +336,8 @@ class VideoEdit extends Component
 
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 

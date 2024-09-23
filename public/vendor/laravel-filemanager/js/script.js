@@ -660,7 +660,7 @@ function use(items) {
     var win = tinyMCEPopup.getWindowArg("window");
     win.document.getElementById(tinyMCEPopup.getWindowArg("input")).value = url;
     if (typeof(win.ImageDialog) != "undefined") {
-      // Update image dimensions
+      // update gallery dimensions
       if (win.ImageDialog.getImageData) {
         win.ImageDialog.getImageData();
       }

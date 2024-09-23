@@ -69,10 +69,16 @@
         <div class="grid mb-5 lg:grid-cols-1 lg:gap-6">
             <!-- Start Name -->
             <div>
-                <x-input-label for="name" :value="__('Gallery Name')" /><span class="text-red-500">*</span>
+                <x-input-label for="name" :value="__('Title')" /><span class="text-red-500">*</span>
                 <x-text-input id="name" class="block w-full mt-1" type="text" name="name" wire:model='name'
-                    required autofocus placeholder="Gallery Name" />
+                    required autofocus placeholder="Title" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+            <div>
+                <x-input-label for="name_kh" :value="__('Name KH')" /><span class="text-red-500">*</span>
+                <x-text-input id="name_kh" class="block w-full mt-1" type="text" name="name_kh" wire:model='name_kh'
+                    required autofocus placeholder="Name KH" />
+                <x-input-error :messages="$errors->get('name_kh')" class="mt-2" />
             </div>
             <!-- End Name -->
 

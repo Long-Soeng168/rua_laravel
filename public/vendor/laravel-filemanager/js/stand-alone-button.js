@@ -19,7 +19,7 @@
         // clear previous preview
         target_preview.html('');
 
-        // set or change the preview image src
+        // set or change the preview gallery src
         items.forEach(function (item) {
           target_preview.append(
             $('<img>').css('height', '5rem').attr('src', item.thumb_url)

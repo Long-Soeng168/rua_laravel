@@ -48,7 +48,7 @@
         <div
             class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
 
-            @can('create article')
+            @can('create procurement')
                 <x-primary-button href="{{ route('admin.articles.create') }}">
                     <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
@@ -80,6 +80,7 @@
                             Title
                         </div>
                     </th>
+                    <th scope="col" class="px-4 py-3">Title KH</th>
                     <th scope="col" class="px-4 py-3">PDF</th>
                     <th scope="col" class="py-3 text-center">Action</th>
                 </tr>
@@ -99,6 +100,7 @@
                             </a>
                         </th>
                         <x-table-data value="{{ $item->name }}" />
+                        <x-table-data value="{{ $item->name_kh }}" />
 
                         <x-table-data>
                             @if ($item->pdf)
@@ -116,7 +118,7 @@
 
                         <td class="px-6 py-4">
                             <div class="flex items-start justify-center gap-3">
-                                @can('view article')
+                                @can('view procurement')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('articles/' . $item->id) }}" @mouseenter="tooltip = true"
@@ -144,7 +146,7 @@
                                     </div>
                                 @endcan
 
-                                @can('delete article')
+                                @can('delete procurement')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a wire:confirm='Are you sure? you want to delete : {{ $item->name }}'
@@ -176,7 +178,7 @@
                                     </div>
                                 @endcan
 
-                                @can('update article')
+                                @can('update procurement')
                                     <div class="pb-1" x-data="{ tooltip: false }">
                                         <!-- Modal toggle -->
                                         <a href="{{ url('admin/articles/' . $item->id . '/edit') }}"

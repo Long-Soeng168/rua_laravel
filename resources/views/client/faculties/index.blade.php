@@ -33,19 +33,19 @@
                     <ul class="space-y-3">
 
                         @forelse ($faculties as $item)
-                        <li
-                        class="w-full gap-3 list-disc border-gray-200 hover:underline text-leftfont-medium rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400">
-                        <a href="{{ url('faculties/'.$item->id) }}">
-                            {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
-                        </a>
-                    </li>
+                            <li
+                                class="w-full gap-3 list-disc border-gray-200 hover:underline text-leftfont-medium rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400">
+                                <a href="{{ url('faculties/' . $item->id) }}">
+                                    {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
+                                </a>
+                            </li>
                         @empty
-                        <li
-                        class="w-full gap-3 list-disc border-gray-200 hover:underline text-leftfont-medium rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400">
-                        <a href="#">
-                            No Faculty ...
-                        </a>
-                    </li>
+                            <li
+                                class="w-full gap-3 list-disc border-gray-200 hover:underline text-leftfont-medium rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400">
+                                <a href="#">
+                                    No Faculty ...
+                                </a>
+                            </li>
                         @endforelse
 
 
@@ -60,28 +60,9 @@
                 <div class="max-w-3xl px-4 pt-6 pb-12 mx-auto sm:px-6 lg:px-8">
                     <div class="max-w-2xl">
                         <!-- Content -->
-                        <div class="space-y-5 md:space-y-8">
-                            <div class="space-y-3">
-                                <h2 class="text-3xl font-bold font-domine md:text-3xl dark:text-white">
-                                    Faculty
-                                </h2>
-                            </div>
+                        <div class="space-y-5 md:space-y-8 no-tailwind">
+                            {!! app()->getLocale() == 'kh' ? $facultyInfo->description_kh : $facultyInfo->description !!}
 
-                            <figure class="border-2">
-                                <img class="object-cover w-full"
-                                    src="{{ asset('assets/New Image/photo_2024-06-27_14-02-58 (8).jpg') }}"
-                                    alt="Image Description" />
-                            </figure>
-
-                            <p class="text-justify text-gray-800 text-md dark:text-neutral-200">
-                                As we've grown, we've seen how Preline has
-                                helped companies such as Spotify, Microsoft,
-                                Airbnb, Facebook, and Intercom bring their
-                                designers closer together to create amazing
-                                things. We've also learned that when the culture
-                                of sharing is brought in earlier, the better
-                                teams adapt and communicate with one another.
-                            </p>
                         </div>
                         <!-- End Content -->
                     </div>
@@ -93,7 +74,7 @@
             <!-- Start Right Section -->
             <div class="col-span-12 space-y-6 lg:col-span-3 no-tailwind">
                 <div id="contactbox" class="p-6 bg-white border rounded-lg shadow-lg no-tailwind">
-                    {!! app()->getLocale() == 'kh' ? $sideinfo->contact_info_kh : $sideinfo->contact_info !!}
+                    {!! app()->getLocale() == 'kh' ? $facultyInfo->contact_info_kh : $facultyInfo->contact_info !!}
                 </div>
             </div>
 

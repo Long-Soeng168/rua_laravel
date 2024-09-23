@@ -41,6 +41,7 @@ class NewsEdit extends Component
     public $isbn = null;
     public $year = null;
     public $description = null;
+    public $description_kh = null;
 
     public $keywords = [];
 
@@ -63,6 +64,7 @@ class NewsEdit extends Component
         $this->isbn = $this->item->isbn;
         $this->year = $this->item->year;
         $this->description = $this->item->description;
+        $this->description_kh = $this->item->description_kh;
 
         $this->keywords = explode(',', $this->item->keywords);
     }
@@ -319,6 +321,7 @@ class NewsEdit extends Component
             'language_id' => 'nullable',
             'author_id' => 'nullable',
             'description' => 'nullable',
+            'description_kh' => 'nullable',
         ]);
 
         if (count($this->keywords) > 0) {
@@ -329,7 +332,8 @@ class NewsEdit extends Component
 
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 

@@ -92,6 +92,7 @@ Route::group([
 
     Route::resource('faculties', FacultyController::class);
     Route::get('sideinfo', [FacultyController::class, 'sideinfo']);
+    Route::get('faculties_info', [FacultyController::class, 'FacultiesInfo']);
     Route::resource('faculties_pages', FacultyPageController::class);
 
 

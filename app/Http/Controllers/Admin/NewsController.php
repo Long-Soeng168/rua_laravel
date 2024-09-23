@@ -11,10 +11,10 @@ class NewsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:view bulletin', ['only' => ['index', 'show']]);
-        $this->middleware('permission:create bulletin', ['only' => ['create', 'store']]);
-        $this->middleware('permission:update bulletin', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete bulletin', ['only' => ['destroy']]);
+        $this->middleware('permission:view news', ['only' => ['index', 'show']]);
+        $this->middleware('permission:create news', ['only' => ['create', 'store']]);
+        $this->middleware('permission:update news', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete news', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

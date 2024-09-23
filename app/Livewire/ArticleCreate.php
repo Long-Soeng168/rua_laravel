@@ -32,12 +32,14 @@ class ArticleCreate extends Component
     public $author_id = null;
 
     public $name = null;
+    public $name_kh = null;
     public $pages_count = null;
     public $edition = null;
     public $link = null;
     public $isbn = null;
     public $year = null;
     public $description = null;
+    public $description_kh = null;
 
     public $keywords = [];
 
@@ -283,6 +285,7 @@ class ArticleCreate extends Component
         $this->dispatch('livewire:updated');
         $validated = $this->validate([
             'name' => 'required|string|max:255',
+            'name_kh' => 'required|string|max:255',
             'image' => 'required|image|max:2048',
             'pdf' => 'required|file|mimes:pdf|max:51200',
             'pages_count' => 'nullable|integer|min:1',
@@ -298,6 +301,7 @@ class ArticleCreate extends Component
             'language_id' => 'nullable|exists:languages,id',
             'author_id' => 'nullable|exists:authors,id',
             'description' => 'nullable',
+            'description_kh' => 'nullable',
         ]);
 
         $validated['create_by_user_id'] = request()->user()->id;
@@ -309,7 +313,8 @@ class ArticleCreate extends Component
 
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 

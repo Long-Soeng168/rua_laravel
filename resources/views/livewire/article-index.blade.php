@@ -54,11 +54,7 @@
 
                                         <h1
                                             class="absolute block w-full p-4 text-lg font-bold text-center text-gray-700 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                                            @if (app()->getLocale() == 'kh' && $item->name_kh)
-                                                {{ $item->name_kh }}
-                                            @else
-                                                {{ $item->name }}
-                                            @endif
+                                            {{ app()->getLocale() == 'kh' ? $item->name_kh :  $item->name}}
                                         </h1>
 
                                     </div>
@@ -69,13 +65,15 @@
                             <div class="relative pt-2" x-data="{ tooltipVisible: false }">
                                 <h3 @mouseenter="tooltipVisible = true" @mouseleave="tooltipVisible = false"
                                     class="relative block font-medium text-md text-black before:absolute before:bottom-[-0.1rem] before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white mb-1">
-                                    <p class="line-clamp-{{ env('Limit_Line') }}">{{ $item->name }}</p>
+                                    <p class="line-clamp-{{ env('Limit_Line') }}">
+                                        {{ app()->getLocale() == 'kh' ? $item->name_kh :  $item->name}}
+                                    </p>
                                 </h3>
 
                                 <div x-show="tooltipVisible" x-transition
                                     class="absolute z-10 px-3 py-2 text-sm font-medium text-white bg-gray-600 rounded-lg shadow-sm dark:bg-gray-600"
                                     style="display: none;">
-                                    {{ $item->name }}
+                                    {{ app()->getLocale() == 'kh' ? $item->name_kh :  $item->name}}
                                     <div class="tooltip-arrow"></div>
                                 </div>
                             </div>

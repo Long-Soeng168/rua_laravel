@@ -318,6 +318,7 @@ class AudioEdit extends Component
             'language_id' => 'nullable',
             'author_id' => 'nullable',
             'description' => 'nullable',
+            'description_kh' => 'nullable',
         ]);
 
         if (count($this->keywords) > 0) {
@@ -328,7 +329,8 @@ class AudioEdit extends Component
 
         foreach ($validated as $key => $value) {
             if (is_null($value) || $value === '') {
-                unset($validated[$key]);
+                // unset($validated[$key]);
+                $validated[$key] = null;
             }
         }
 
