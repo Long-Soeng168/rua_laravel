@@ -35,7 +35,7 @@
         rel="stylesheet">
     <script>
         tailwind.config = {
-            darkMode: "class", // Enables dark mode based on class
+            darkMode: "false", // Enables dark mode based on class
             theme: {
                 extend: {
                     colors: {
