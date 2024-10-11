@@ -105,9 +105,9 @@
                                 class="mt-2 ml-3 text-lg font-bold leading-8 cursor-pointer text-slate-600 hover:underline hover:opacity-90 line-clamp-1">
                                 {{ app()->getLocale() == 'kh' ? $news->first()->name_kh : $news->first()->name }}
                             </h5>
-                            <h6 class="ml-3 leading-8 cursor-pointer text-slate-400 hover:opacity-90 line-clamp-2">
+                            <div class="ml-3 leading-8 cursor-pointer text-slate-400 hover:opacity-90 line-clamp-2">
                                 {!! app()->getLocale() == 'kh' ? $news->first()->description_kh : $news->first()->description !!}
-                            </h6>
+                            </div>
 
                         </div>
                     </a>
