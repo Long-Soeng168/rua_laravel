@@ -129,11 +129,9 @@
                                     {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
                                 </h5>
                             </div>
-                            <div>
-                                <h5
+                            <div
                                     class="text-slate-400 text-left text-[12px] lg:text-[14px] cursor-pointer hover:opacity-90 line-clamp-2 leading-loose no-tailwind">
                                     {!!  app()->getLocale() == 'kh' ? $item->description_kh : $item->description !!}
-                                </h5>
                             </div>
                         </div>
                     </a>
