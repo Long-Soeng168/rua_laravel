@@ -144,12 +144,12 @@
 
         <div class="mb-5" wire:ignore>
             <x-input-label for="description" :value="__('Description')" />
-            <textarea id="description" name="description"></textarea>
+            <textarea id="description" name="description">{{ $description }}</textarea>
         </div>
 
         <div class="mb-5" wire:ignore>
             <x-input-label for="description_kh" :value="__('Description KH')" />
-            <textarea id="description_kh" name="description_kh"></textarea>
+            <textarea id="description_kh" name="description_kh">{{ $description_kh }}</textarea>
         </div>
 
         <div>
