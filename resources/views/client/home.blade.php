@@ -106,7 +106,7 @@
                                 {{ app()->getLocale() == 'kh' ? $news->first()->name_kh : $news->first()->name }}
                             </h5>
                             <div class="ml-3 leading-8 cursor-pointer text-slate-400 hover:opacity-90 line-clamp-2">
-                                {!! app()->getLocale() == 'kh' ? $news->first()->description_kh : $news->first()->description !!}
+                                {!! app()->getLocale() == 'kh' ? $news->first()->short_description_kh : $news->first()->short_description !!}
                             </div>
 
                         </div>
@@ -131,7 +131,7 @@
                             </div>
                             <div
                                     class="text-slate-400 text-left text-[12px] lg:text-[14px] cursor-pointer hover:opacity-90 line-clamp-2 leading-loose no-tailwind">
-                                    {!!  app()->getLocale() == 'kh' ? $item->description_kh : $item->description !!}
+                                    {!!  app()->getLocale() == 'kh' ? $item->short_description_kh : $item->short_description !!}
                             </div>
                         </div>
                     </a>
@@ -214,7 +214,7 @@
                                         <h6
                                             class="ml-3 leading-8 cursor-pointer text-slate-400 hover:opacity-90 line-clamp-2">
                                             <div>
-                                                {!! app()->getLocale() == 'kh' ? $videos->first()->description_kh : $videos->first()->description !!}
+                                                {!! app()->getLocale() == 'kh' ? $videos->first()->short_description_kh : $videos->first()->short_description !!}
                                             </div>
                                         </h6>
 
@@ -244,7 +244,7 @@
                                         <div>
                                             <h5
                                                 class="text-slate-400 text-left text-[12px] lg:text-[14px] cursor-pointer hover:opacity-90 line-clamp-2 leading-loose no-tailwind">
-                                                {!!  app()->getLocale() == 'kh' ? $item->description_kh : $item->description !!}
+                                                {!!  app()->getLocale() == 'kh' ? $item->short_description_kh : $item->short_description !!}
                                             </h5>
                                         </div>
                                     </div>

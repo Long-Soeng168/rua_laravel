@@ -40,6 +40,8 @@ class NewsCreate extends Component
     public $year = null;
     public $description = null;
     public $description_kh = null;
+    public $short_description = null;
+    public $short_description_kh = null;
 
     public $keywords = [];
 
@@ -299,6 +301,8 @@ class NewsCreate extends Component
             'author_id' => 'nullable|exists:authors,id',
             'description' => 'nullable',
             'description_kh' => 'nullable',
+            'short_description' => 'required|string|max:500',
+            'short_description_kh' => 'required|string|max:500',
         ]);
 
         $validated['create_by_user_id'] = request()->user()->id;

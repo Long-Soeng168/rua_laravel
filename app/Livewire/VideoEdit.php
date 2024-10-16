@@ -43,6 +43,8 @@ class VideoEdit extends Component
     public $year = null;
     public $description = null;
     public $description_kh = null;
+    public $short_description = null;
+    public $short_description_kh = null;
 
     public $keywords = [];
 
@@ -67,6 +69,8 @@ class VideoEdit extends Component
         $this->year = $this->item->year;
         $this->description = $this->item->description;
         $this->description_kh = $this->item->description_kh;
+        $this->short_description = $this->item->short_description;
+        $this->short_description_kh = $this->item->short_description_kh;
 
         $this->keywords = explode(',', $this->item->keywords);
     }
@@ -326,6 +330,8 @@ class VideoEdit extends Component
             'author_id' => 'nullable',
             'description' => 'nullable',
             'description_kh' => 'nullable',
+            'short_description' => 'required|string|max:500',
+            'short_description_kh' => 'required|string|max:500',
         ]);
 
         if (count($this->keywords) > 0) {

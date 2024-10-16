@@ -42,6 +42,8 @@ class NewsEdit extends Component
     public $year = null;
     public $description = null;
     public $description_kh = null;
+    public $short_description = null;
+    public $short_description_kh = null;
 
     public $keywords = [];
 
@@ -49,24 +51,12 @@ class NewsEdit extends Component
     {
         $this->item = News::findOrFail($id);
 
-        $this->news_category_id = $this->item->news_category_id;
-        $this->news_sub_category_id = $this->item->news_sub_category_id;
-        $this->news_type_id = $this->item->news_type_id;
-        $this->publisher_id = $this->item->publisher_id;
-        $this->location_id = $this->item->location_id;
-        $this->language_id = $this->item->language_id;
-        $this->author_id = $this->item->author_id;
-
         $this->name = $this->item->name;
         $this->name_kh = $this->item->name_kh;
-        $this->edition = $this->item->edition;
-        $this->link = $this->item->link;
-        $this->isbn = $this->item->isbn;
-        $this->year = $this->item->year;
         $this->description = $this->item->description;
         $this->description_kh = $this->item->description_kh;
-
-        $this->keywords = explode(',', $this->item->keywords);
+        $this->short_description = $this->item->short_description;
+        $this->short_description_kh = $this->item->short_description_kh;
     }
 
     // ==========Add New Author============
@@ -322,6 +312,8 @@ class NewsEdit extends Component
             'author_id' => 'nullable',
             'description' => 'nullable',
             'description_kh' => 'nullable',
+            'short_description' => 'required|string|max:500',
+            'short_description_kh' => 'required|string|max:500',
         ]);
 
         if (count($this->keywords) > 0) {

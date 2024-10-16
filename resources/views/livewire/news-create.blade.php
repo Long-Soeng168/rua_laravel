@@ -66,9 +66,9 @@
     @endif
     <form class="w-full" action="{{ route('admin.items.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="grid mb-5 lg:grid-cols-1 lg:gap-6">
+        <div class="grid mb-5 lg:grid-cols-2 lg:gap-6">
             <!-- Start Name -->
-            <div>
+            <div class="col-span-2">
                 <x-input-label for="name" :value="__('Title')" /><span class="text-red-500">*</span>
                 <x-text-input id="name" class="block w-full mt-1" type="text" name="name" wire:model='name'
                     required autofocus placeholder="Title" />
@@ -76,13 +76,24 @@
             </div>
             <!-- End Name -->
             <!-- Start Name -->
-            <div>
+            <div class="col-span-2">
                 <x-input-label for="name_kh" :value="__('Title KH')" /><span class="text-red-500">*</span>
                 <x-text-input id="name_kh" class="block w-full mt-1" type="text" name="name_kh" wire:model='name_kh'
                     required autofocus placeholder="Title KH" />
                 <x-input-error :messages="$errors->get('name_kh')" class="mt-2" />
             </div>
             <!-- End Name -->
+
+            <div class="col-span-2">
+                <x-input-label for="short_description" :value="__('Short Description')" />
+                <textarea id="short_description" class="block w-full p-2 mt-1 border rounded-lg bg-gray-50" name="short_description" wire:model='short_description'> {{ $short_description }}</textarea>
+                <x-input-error :messages="$errors->get('short_description')" class="mt-2" />
+            </div>
+            <div class="col-span-2">
+                <x-input-label for="short_description_kh" :value="__('Short Description KH')" />
+                <textarea id="short_description_kh" class="block w-full p-2 mt-1 border rounded-lg bg-gray-50" name="short_description_kh" wire:model='short_description_kh'> {{ $short_description_kh }}</textarea>
+                <x-input-error :messages="$errors->get('short_description_kh')" class="mt-2" />
+            </div>
 
         </div>
 

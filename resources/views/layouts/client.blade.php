@@ -108,7 +108,7 @@
                     </a>
                 </div>
 
-                <div class="justify-end h-full col-span-11 p-2 mt-8 text-nowrap ">
+                <div class="justify-end h-full col-span-11 p-2 mt-8">
                     <div class="flex flex-col order-1 w-full gap-5 " id="navbar-dropdown">
                         <nav class="block w-full border-gray-200 ">
                             <div class="flex flex-wrap items-center justify-end max-w-screen-xl mx-auto">
@@ -126,7 +126,7 @@
                                         @forelse ($top_menus as $item)
                                             @if ($item->is_show_dropdown)
                                                 <li
-                                                    class="flex items-center px-2 leading-4 text-gray-900 border-[#15803d] border-r max-w-72 hover:underline hover:decoration-[#15803d]">
+                                                    class="flex items-center px-2 leading-4 text-gray-900 border-[#15803d] border-r max-w-44 hover:underline hover:decoration-[#15803d]">
                                                     <button id="dropdownButton{{ $item->id }}"
                                                         data-dropdown-toggle="dropdownItem{{ $item->id }}"
                                                         class="flex items-center p-1 text-center " type="button">
@@ -208,7 +208,7 @@
                                                 </li>
                                             @else
                                                 <li
-                                                    class="flex items-center px-2 leading-4 text-gray-900 border-[#15803d] border-r max-w-72 hover:underline hover:decoration-[#15803d]">
+                                                    class="flex items-center px-2 leading-4 text-gray-900 border-[#15803d] border-r max-w-44 hover:underline hover:decoration-[#15803d]">
                                                     <a href="{{ url('menus/' . $item->id) }}">
                                                         <p class="p-1 text-center">
                                                             {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}

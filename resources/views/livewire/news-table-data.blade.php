@@ -80,7 +80,7 @@
                             Title
                         </div>
                     </th>
-                    <th scope="col" class="py-3">Title KH</th>
+                    <th scope="col" class="py-3">Short Description</th>
                     <th scope="col" class="py-3 text-center">Action</th>
                 </tr>
             </thead>
@@ -99,7 +99,7 @@
                             </a>
                         </th>
                         <x-table-data value="{{ $item->name }}" />
-                        <x-table-data value="{{ $item->name_kh }}" />
+                        <x-table-data value="{{ $item->short_description }}" />
 
 
                         <td class="px-6 py-4">
