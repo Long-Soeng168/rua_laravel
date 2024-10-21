@@ -60,8 +60,8 @@ class MenuPageCreate extends Component
         $validated = $this->validate([
             'name' => 'required|string|max:255',
             'name_kh' => 'required|string|max:255',
-            'description' => 'required',
-            'description_kh' => 'required',
+            'description' => 'nullable',
+            'description_kh' => 'nullable',
             'type' => 'required',
             'menu_id' => 'required',
             'parent_id' => 'nullable',
