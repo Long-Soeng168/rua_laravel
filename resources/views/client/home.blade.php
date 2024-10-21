@@ -78,8 +78,8 @@
 
     <!--news -->
     <!--button-->
-    <div class="px-4 mx-auto mb-6 max-w-7xl ">
-        <div class="my-10">
+    <div class="px-4 mx-auto max-w-7xl ">
+        <div class="mt-10">
             <div class="flex justify-center gap-10 px-10 py-5 mx-2">
                 <a href="{{ url('/news') }}"
                     class="border-solid border-b text-xl  px-5 py-3 transision duration-300 bg-[#078e3b] text-white hover:underline font-bold underline-offset-2">News
@@ -92,7 +92,7 @@
         </div>
 
         <!--Swiper News-->
-        <div class="grid grid-cols-12 gap-5 mx-auto my-10 mt-3 max-w-7xl">
+        <div class="grid grid-cols-12 gap-5 mx-auto mt-10 mb-3 max-w-7xl">
             <div class="col-span-12 overflow-hidden border rounded-md lg:col-span-4 ">
                 <div class="relative ">
                     <a href="{{ url('news/' . $news->first()->id) }}">
@@ -139,9 +139,9 @@
                 @endforelse
             </div>
         </div>
-        <a href="#" class="flex justify-end col-span-3 mt-4 mr-4 text-slate-700 text-end">
-            <span class=" hover:text-slate-900 hover:underline hover:underline-offset-4">
-
+        <a href="{{ url('/news') }}" class="flex justify-end col-span-3 mr-4 text-slate-700 text-end">
+            <span class="text-lg font-semibold hover:text-slate-900 hover:underline hover:underline-offset-4">
+                {{ __('messages.seeMore') }} >
             </span>
         </a>
         <!--End Swiper News-->
@@ -255,8 +255,9 @@
 
                         </div>
                     </div>
-                    <a href="#" class="flex justify-end col-span-3 mt-4 mr-4 text-slate-700 text-end">
-                        <span class=" hover:text-slate-900 hover:underline hover:underline-offset-4">
+                    <a href="{{ url('/videos') }}" class="flex justify-end col-span-3 mt-4 mr-4 text-slate-700 text-end">
+                        <span class="text-lg font-semibold hover:text-slate-900 hover:underline hover:underline-offset-4">
+                            {{ __('messages.seeMore') }} >
                         </span>
                     </a>
                     <!--End Swiper Video-->
@@ -286,6 +287,11 @@
                             @endforelse
                         </div>
                     </div>
+                    <a href="{{ url('/images') }}" class="flex justify-end col-span-3 mt-4 mr-4 text-slate-700 text-end">
+                        <span class="text-lg font-semibold hover:text-slate-900 hover:underline hover:underline-offset-4">
+                            {{ __('messages.seeMore') }} >
+                        </span>
+                    </a>
                 </div>
 
 

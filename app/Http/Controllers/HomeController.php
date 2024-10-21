@@ -168,7 +168,7 @@ class HomeController extends Controller
         $audios = Audio::inRandomOrder()->limit(8)->get();
         $theses = Thesis::inRandomOrder()->limit(10)->get();
         $articles = Article::inRandomOrder()->limit(10)->get();
-        $images = Image::orderBy('id', 'desc')->get();
+        $images = Image::orderBy('id', 'desc')->limit(3)->get();
         $videos = Video::orderBy('id', 'desc')->limit(3)->get();
         $news = News::orderBy('id', 'desc')->limit(3)->get();
         $homepageLinks = Student::orderBy('id', 'desc')->limit(2)->get();

@@ -26,7 +26,7 @@
 
     <div class="max-w-screen-xl grid-cols-12 px-2 mx-auto lg:grid xl:px-0">
         <!-- Items -->
-        <div class="col-span-12 lg:pl-4">
+        <div class="col-span-12">
             <div class="max-w-screen-xl mx-auto mt-6">
                 <div class="flex justify-between px-2 py-1">
                     <p class="text-xl font-bold capitalize text-primary">
