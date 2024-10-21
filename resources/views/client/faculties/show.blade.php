@@ -55,7 +55,8 @@
                                         {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
                                     </a>
                                 @elseif($item->type == 'dropdown')
-                                    <a href="{{ url('faculties/' . $item->faculty_id . '?child=' . $item->id . '&page=' . $item->id) }}">
+                                    <a
+                                        href="{{ url('faculties/' . $item->faculty_id . '?child=' . $item->id . '&page=' . $item->id) }}">
                                         {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
                                     </a>
                                 @else
@@ -99,13 +100,13 @@
                             </div>
 
                             <p class="text-justify text-gray-800 text-md dark:text-neutral-200">
-                                <div class="no-tailwind">
-                                    @if ($page != null)
+                            <div class="no-tailwind">
+                                @if ($page != null)
                                     {!! app()->getLocale() == 'kh' ? $page->description_kh : $page->description !!}
-                                    @else
+                                @else
                                     {!! app()->getLocale() == 'kh' ? $faculty->description_kh : $faculty->description !!}
-                                    @endif
-                                </div>
+                                @endif
+                            </div>
                             </p>
                             {{-- GENERAL SUBJECTS --}}
                             <div id="accordion-collapse" data-accordion="collapse" class="">
@@ -114,33 +115,76 @@
                                     <!--  info 1 -->
                                     @if ($child && count($child->pages) > 0 && $child->type == 'dropdown')
                                         @forelse ($child->pages as $index => $item)
-                                            <div>
-                                                <h2 id="accordion-collapse-heading-{{ $item->id }}">
-                                                    <button type="button"
-                                                        class="flex items-center justify-between w-full gap-3 p-3 text-lg font-medium text-gray-500 border border-gray-200 font-domine rtl:text-right focus:ring-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                                                        data-accordion-target="#accordion-collapse-body-{{ $item->id }}"
-                                                        aria-expanded="{{ $index == 0 ? 'true' : 'false' }}" aria-controls="accordion-collapse-body-{{ $item->id }}">
-                                                        <span>
-                                                            {{ $item->name }}
-                                                        </span>
-                                                        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
-                                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 10 6">
-                                                            <path stroke="currentColor" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="2"
-                                                                d="M9 5 5 1 1 5" />
-                                                        </svg>
-                                                    </button>
-                                                </h2>
-                                                <div id="accordion-collapse-body-{{ $item->id }}" class="hidden my-2 font-sans"
-                                                    aria-labelledby="accordion-collapse-heading-{{ $item->id }}">
-                                                    <div class=" border-dotted border-2 border-[#15803d] ">
-                                                        <div class="relative overflow-x-auto no-tailwind">
-                                                            {!! $item->description !!}
+                                            @if (count($item->pages) > 0)
+                                                <div class="mt-4">
+                                                    <h2 class="text-lg font-semibold"
+                                                        id="accordion-collapse-heading-{{ $item->id }}">
+                                                        {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
+                                                    </h2>
+                                                </div>
+                                                @forelse ($item->pages as $item)
+                                                    <div>
+                                                        <h2 id="accordion-collapse-heading-{{ $item->id }}">
+                                                            <button type="button"
+                                                                class="flex items-center justify-between w-full gap-3 p-3 font-medium text-gray-500 border border-gray-200 text-md font-domine rtl:text-right focus:ring-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                                                data-accordion-target="#accordion-collapse-body-{{ $item->id }}"
+                                                                aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                                                aria-controls="accordion-collapse-body-{{ $item->id }}">
+                                                                <span>
+                                                                    {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
+                                                                </span>
+                                                                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+                                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none" viewBox="0 0 10 6">
+                                                                    <path stroke="currentColor" stroke-linecap="round"
+                                                                        stroke-linejoin="round" stroke-width="2"
+                                                                        d="M9 5 5 1 1 5" />
+                                                                </svg>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="accordion-collapse-body-{{ $item->id }}"
+                                                            class="hidden my-2 font-sans"
+                                                            aria-labelledby="accordion-collapse-heading-{{ $item->id }}">
+                                                            <div class=" border-dotted border-2 border-[#15803d] ">
+                                                                <div class="relative overflow-x-auto no-tailwind">
+                                                                    {!! app()->getLocale() == 'kh' ? $item->description_kh : $item->description !!}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @empty
+                                                @endforelse
+                                            @else
+                                                <div>
+                                                    <h2 id="accordion-collapse-heading-{{ $item->id }}">
+                                                        <button type="button"
+                                                            class="flex items-center justify-between w-full gap-3 p-3 text-lg font-medium text-gray-500 border border-gray-200 font-domine rtl:text-right focus:ring-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                                            data-accordion-target="#accordion-collapse-body-{{ $item->id }}"
+                                                            aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                                            aria-controls="accordion-collapse-body-{{ $item->id }}">
+                                                            <span>
+                                                                {{ app()->getLocale() == 'kh' ? $item->name_kh : $item->name }}
+                                                            </span>
+                                                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0"
+                                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none" viewBox="0 0 10 6">
+                                                                <path stroke="currentColor" stroke-linecap="round"
+                                                                    stroke-linejoin="round" stroke-width="2"
+                                                                    d="M9 5 5 1 1 5" />
+                                                            </svg>
+                                                        </button>
+                                                    </h2>
+                                                    <div id="accordion-collapse-body-{{ $item->id }}"
+                                                        class="hidden my-2 font-sans"
+                                                        aria-labelledby="accordion-collapse-heading-{{ $item->id }}">
+                                                        <div class=" border-dotted border-2 border-[#15803d] ">
+                                                            <div class="relative overflow-x-auto no-tailwind">
+                                                                {!! app()->getLocale() == 'kh' ? $item->description_kh : $item->description !!}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         @empty
                                         @endforelse
                                     @endif
