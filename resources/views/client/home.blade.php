@@ -97,7 +97,7 @@
                 <div class="relative ">
                     <a href="{{ url('news/' . $news->first()->id) }}">
                         <div class="w-full">
-                            <img class="object-cover w-full aspect-video "
+                            <img class="object-contain w-full aspect-video "
                                 src="{{ asset('assets/images/news/thumb/' . $news->first()->image) }}">
                         </div>
                         <div class="p-2">
@@ -120,7 +120,7 @@
                     @endif
                     <a href="{{ url('news/' . $item->id) }}"
                         class="flex items-center bg-white   rounded-lg border flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 h-[110px] lg:h-[160px] overflow-hidden">
-                        <img class="object-cover h-full aspect-video "
+                        <img class="object-contain h-full aspect-video "
                             src="{{ asset('assets/images/news/thumb/' . $item->image) }}" alt="">
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <div>
@@ -270,7 +270,7 @@
                         <div class="flex swiper-gallery ">
                             @forelse ($images as $item)
                                 <div role="group" class="div-active" style="width: 381.333px; margin-right: 50px;">
-                                    <div class="relative w-full bg-red-100 aspect-square">
+                                    <div class="relative w-full aspect-square">
                                         <a href="{{ url('images/' . $item->id) }}" class="group">
                                             <div class="absolute inset-0 z-0 bg-center bg-cover">
                                                 <img class="object-cover w-full h-full duration-300 rounded-lg group-hover:scale-105 brightness-50 group-hover:brightness-100 transistion"
