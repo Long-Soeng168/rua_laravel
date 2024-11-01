@@ -254,7 +254,7 @@
                                 class="flex items-center px-1 leading-4 text-white border-r border-white max-w-[135px] p-1 hover:bg-white hover:text-primary">
                                 <button id="dropdownButtonfaculty" data-dropdown-toggle="dropdownItemfaculty"
                                     class="flex items-center p-1 text-center " type="button">
-                                    {{ app()->getLocale() == 'kh' ? 'មហាវិទ្យាល័យ' : 'faculty' }}
+                                    {{ app()->getLocale() == 'kh' ? 'មហាវិទ្យាល័យ' : 'Faculty' }}
                                     <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
