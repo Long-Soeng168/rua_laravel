@@ -2,7 +2,7 @@
 @section('content')
     <section class="font-poppins" style="">
         <!-- Start Breadcrumbs -->
-        <section class="py-3 mx-auto my-4 border-2 border-t-0 max-w-7xl border-x-0" aria-label="Breadcrumb">
+        <section class="px-2 py-3 mx-auto my-4 border-2 border-t-0 max-w-7xl border-x-0" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li class="inline-flex items-center">
                     <a href="{{ url('/') }}"
